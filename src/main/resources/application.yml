@@ -1,0 +1,47 @@
+thingworx:
+  base-url: ${THINGWORX_BASE_URL:http://localhost}
+  app-key: ${THINGWORX_APP_KEY}
+
+app:
+  cache:
+    enabled: ${CACHE_ENABLED:true}
+
+spring:
+  application:
+    name: ${SPRING_APP_NAME:thingworx-mcp-server}
+  main:
+    banner-mode: ${SPRING_BANNER_MODE:off}
+  cache:
+    type: redis
+    cache-names: things,listings,services,properties
+    redis:
+      time-to-live: ${REDIS_CACHE_TTL:60s}
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      timeout: ${REDIS_TIMEOUT:2000ms}
+      jedis:
+        pool:
+          max-active: ${REDIS_POOL_MAX_ACTIVE:8}
+          max-idle: ${REDIS_POOL_MAX_IDLE:8}
+          min-idle: ${REDIS_POOL_MIN_IDLE:0}
+          max-wait: ${REDIS_POOL_MAX_WAIT:-1ms}
+  ai:
+    mcp:
+      server:
+        enabled: ${MCP_SERVER_ENABLED:true}
+        type: ${MCP_SERVER_TYPE:SYNC}
+        protocol: ${MCP_SERVER_PROTOCOL:STREAMABLE}
+        sse: ${MCP_SERVER_SSE:/sse}
+        mcp-endpoint: ${MCP_SERVER_ENDPOINT:/mcp}
+        sse-message-endpoint: ${MCP_SERVER_SSE_MESSAGE_ENDPOINT:/mcp/message}
+
+server:
+  port: ${SERVER_PORT:8081}
+
+logging:
+  level:
+    de.doubleslash.thingworx.mcp.server.service: ${SERVICE_LOG_LEVEL:OFF}
+    org.springframework.cache.interceptor: ${CACHE_LOG_LEVEL:OFF}

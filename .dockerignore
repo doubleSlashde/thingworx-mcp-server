@@ -1,0 +1,21 @@
+# Maven build output
+/target
+
+# Maven local repository cache (not needed inside context)
+.mvn/
+.settings/
+.classpath
+.project
+
+# Git
+.git
+.gitignore
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
