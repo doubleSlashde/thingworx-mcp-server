@@ -1,5 +1,7 @@
 # ThingWorx MCP Server
 
+[LLM-based agent for ThingWorx: Architecture and implementation with MCP](https://blog.doubleslash.de/en/iot-and-connected-things/llm-based-agent-for-thingworx-architecture-and-implementation-with-mcp/)
+
 A Spring Boot-based server that exposes ThingWorx as a set of AI-friendly tools and APIs, with Redis-backed caching and flexible configuration for cloud or local deployment.
 
 Disclaimer: This repository is an experimental project created for evaluation and testing purposes only. It is not intended for production use and comes without any warranties or guarantees.
@@ -41,14 +43,14 @@ docker-compose up --build
 - `REDIS_HOST`, `REDIS_PORT`, `REDIS_PASSWORD` (default: `redis`, `6379`, empty)
 - `MCP_SERVER_*` (see below for advanced MCP endpoints)
 
-### 3. Run Locally (without Docker - needs Java 21+)
+### 3. Run Locally (without Docker - needs Java 21+, Apache Maven)
 
 - Start Redis yourself (e.g. `docker run -p 6379:6379 redis:7-alpine`)
 - Set environment variables as needed
 - Run the Spring Boot app:
 
 ```bash
-./mvnw spring-boot:run
+mvn spring-boot:run
 ```
 
 ## API Overview
